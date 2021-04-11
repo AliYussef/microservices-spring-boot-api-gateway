@@ -80,6 +80,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <!--ay:is docker id (repo) where all images will be created under it-->
+                        <!--mmv2-${project.artifactId}: name of the image-->
+                        <!--${project.version}: version/tag of the image-->
+                        <name>ay/mmv2-${project.artifactId}:${project.version}</name>
+                    </image>
+                    <!--tells spring to fetch required images only if they are not present locally-->
+                    <pullPolicy>IF_NOT_PRESENT</pullPolicy>
+                </configuration>
             </plugin>
         </plugins>
     </build>
